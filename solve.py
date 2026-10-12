@@ -297,7 +297,8 @@ def find_key_frames(bits):
 # ------------------------------------------------------------------ main
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("data"); ap.add_argument("--cache", default=None)
+    def_data = "data/ghost_carrier.sigmf-data" if os.path.exists("data/ghost_carrier.sigmf-data") else "ghost_carrier.sigmf-data"
+    ap.add_argument("data", nargs="?", default=def_data); ap.add_argument("--cache", default=None)
     ap.add_argument("--prns", type=int, nargs="*", default=None, help="skip search, try only these")
     ap.add_argument("--thr", type=float, default=18.0, help="acquisition peak/mean threshold")
     a = ap.parse_args()
